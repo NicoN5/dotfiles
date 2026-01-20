@@ -7,8 +7,6 @@ fi
 
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 
-alias ls='ls --color'
-alias ll='ls -l'
 alias n='nvim'
 
 # pnpm

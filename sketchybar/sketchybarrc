@@ -1,0 +1,88 @@
+# This is a demo config to showcase some of the most important commands.
+# It is meant to be changed and configured, as it is intentionally kept sparse.
+# For a (much) more advanced configuration example see my dotfiles:
+# https://github.com/FelixKratz/dotfiles
+
+PLUGIN_DIR="$CONFIG_DIR/plugins"
+
+##### Bar Appearance #####
+# Configuring the general appearance of the bar.
+# These are only some of the options available. For all options see:
+# https://felixkratz.github.io/SketchyBar/config/bar
+# If you are looking for other colors, see the color picker:
+# https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
+
+sketchybar --bar position=top height=35 color=0x00000000
+
+##### Changing Defaults #####
+# We now change some default values, which are applied to all further items.
+# For a full list of all available item properties see:
+# https://felixkratz.github.io/SketchyBar/config/items
+
+BACKGROUND="0xff000000"
+PADDING=10
+GAP=4
+ROUNDED=99
+BACKGROUND_HEIGHT=30
+
+default=(
+  padding_left=5
+  padding_right=5
+  icon.font="Hack Nerd Font:Bold:17.0"
+  label.font="Hack Nerd Font:Bold:14.0"
+  icon.color=0xffffffff
+  label.color=0xffffffff
+  icon.padding_left=$PADDING
+  icon.padding_right=$GAP
+  label.padding_left=$GAP
+  label.padding_right=$PADDING
+  background.color=$BACKGROUND
+  background.corner_radius=$ROUNDED
+  background.height=$BACKGROUND_HEIGHT
+)
+sketchybar --default "${default[@]}"
+
+# Add events
+sketchybar --add event aerospace_workspace_change
+
+# Left items
+# Apple icon
+sketchybar --add item apple left \
+           --set apple icon= label.drawing=off icon.padding_left=12 icon.padding_right=12
+
+# Current aerospace workspace
+sketchybar --add item aerospace_workspace left \
+           --set aerospace_workspace icon.drawing=off label.padding_left=$PADDING script="$PLUGIN_DIR/aerospace_workspace.sh" \
+           --subscribe aerospace_workspace aerospace_workspace_change
+
+
+# Front app
+    sketchybar --add item front_window left \
+               --set front_window update_freq=1 script="$PLUGIN_DIR/front_app.sh" \
+               --subscribe front_window front_app_switched
+
+# Right items
+# Clock
+sketchybar --add item clock right \
+           --set clock update_freq=1 icon=  script="$PLUGIN_DIR/clock.sh" icon.color=0xffffff80
+
+# Date
+sketchybar --add item date right \
+           --set date update_freq=1 icon=  script="$PLUGIN_DIR/date.sh" icon.color=0xffff8080
+
+# Volume
+sketchybar --add item volume right \
+           --set volume script="$PLUGIN_DIR/volume.sh" icon.color=0xff8080ff \
+           --subscribe volume volume_change
+
+# Battery
+sketchybar --add item battery right \
+           --set battery update_freq=120 script="$PLUGIN_DIR/battery.sh" icon.color=0xff8ACE00 \
+           --subscribe battery system_woke power_source_change
+
+# IP address
+sketchybar --add item ip_address right \
+           --set ip_address update_freq=10 script="$PLUGIN_DIR/ip_address.sh" icon=󰩟
+
+##### Force all scripts to run the first time (never do this in a script) #####
+sketchybar --update

@@ -56,3 +56,9 @@ keymap.set({ "n", "v" }, "\\", '"_')
 
 -- Oil起動
 keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+-- EscでTerminalMode解除
+keymap.set("t", "<Esc>", [[<C-\><C-n>]])
+
+-- Floatermの起動
+-- keymap.set({ "v", "n" }, "<leader>t", "<CMD>FloatermToggle<CR>")

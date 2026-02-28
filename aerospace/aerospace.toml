@@ -65,7 +65,7 @@ preset = 'qwerty'
  inner.vertical =   10
  outer.left =       10
  outer.bottom =     10
- outer.top =        10
+ outer.top =        20
  outer.right =      10
 
 # 'main' binding mode declaration
@@ -136,6 +136,12 @@ alt-z = 'workspace Z'
 alt-x = 'workspace X'
 alt-c = 'workspace C'
 
+alt-i = 'workspace I'
+alt-o = 'workspace O'
+alt-p = 'workspace P'
+alt-n = 'workspace N'
+alt-m = 'workspace M'
+
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = 'move-node-to-workspace 1'
 alt-shift-2 = 'move-node-to-workspace 2'
@@ -149,6 +155,12 @@ alt-shift-d = 'move-node-to-workspace D'
 alt-shift-z = 'move-node-to-workspace Z'
 alt-shift-x = 'move-node-to-workspace X'
 alt-shift-c = 'move-node-to-workspace C'
+
+alt-shift-i = 'move-node-to-workspace I'
+alt-shift-o = 'move-node-to-workspace O'
+alt-shift-p = 'move-node-to-workspace P'
+alt-shift-n = 'move-node-to-workspace N'
+alt-shift-m = 'move-node-to-workspace M'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
@@ -172,3 +184,23 @@ alt-shift-h = ['join-with left', 'mode main']
 alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
+
+[workspace-to-monitor-force-assignment]
+1 = 'main'
+2 = 'main'
+3 = 'main'
+Q = 'main'
+W = 'main'
+E = 'main'
+A = 'main'
+S = 'main'
+D = 'main'
+Z = 'main'
+X = 'main'
+C = 'main'
+
+I = ['secondary', 'main']
+O = ['secondary', 'main']
+P = ['secondary', 'main']
+N = ['secondary', 'main']
+M = ['secondary', 'main']

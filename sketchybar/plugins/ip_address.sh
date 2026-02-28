@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sketchybar --set label="$(ipconfig getifaddr en0)"
+sketchybar --set "$NAME" label="$(ipconfig getifaddr en0)"

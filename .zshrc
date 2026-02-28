@@ -17,18 +17,9 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="powerlevel10k/powerlevel10k"
-plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
-
 alias gconf='nvim ~/Library/Application\ Support/com.mitchellh.ghostty/config'
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Added by Windsurf
 export PATH="/Users/nicon/.codeium/windsurf/bin:$PATH"
@@ -46,3 +37,24 @@ alias ll='eza --all --header --long --git' # long format, all files, git status
 alias tree='eza --tree --icons -L 2' # tree view with icons and depth 2
 
 eval "$(zoxide init zsh)"
+
+# ghq
+function ghq-fzf() {
+  local src=$(ghq list | fzf --preview "bat --color=always --style=header,grid --line-range :80 $(ghq root)/{}/README.*")
+  if [ -n "$src" ]; then
+    BUFFER="cd $(ghq root)/$src"
+    zle accept-line
+  fi
+  zle -R -c
+}
+zle -N ghq-fzf
+bindkey '^g' ghq-fzf
+
+# Lazygit
+alias lg='lazygit'
+
+# brew優先
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Starship
+eval "$(starship init zsh)"

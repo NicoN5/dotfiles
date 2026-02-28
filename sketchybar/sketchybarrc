@@ -12,33 +12,42 @@ PLUGIN_DIR="$CONFIG_DIR/plugins"
 # If you are looking for other colors, see the color picker:
 # https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
 
-sketchybar --bar position=top height=35 color=0x00000000
+sketchybar --bar position=top height=50 color=0x00000000
 
 ##### Changing Defaults #####
 # We now change some default values, which are applied to all further items.
 # For a full list of all available item properties see:
 # https://felixkratz.github.io/SketchyBar/config/items
 
-BACKGROUND="0xff000000"
+# Default style config
+BACKGROUND_COLOR="0x60202020"
 PADDING=10
 GAP=4
-ROUNDED=99
-BACKGROUND_HEIGHT=30
+ROUNDED=0
+BACKGROUND_HEIGHT=35
+BLUR_RADIUS=32
+BORDER_WIDTH=1
+BORDER_COLOR="0x60606060"
+LABEL_COLOR="0xffffffff"
 
+# Default styles
 default=(
   padding_left=5
   padding_right=5
   icon.font="Hack Nerd Font:Bold:17.0"
   label.font="Hack Nerd Font:Bold:14.0"
   icon.color=0xffffffff
-  label.color=0xffffffff
+  label.color=$LABEL_COLOR
   icon.padding_left=$PADDING
   icon.padding_right=$GAP
   label.padding_left=$GAP
   label.padding_right=$PADDING
-  background.color=$BACKGROUND
+  background.color=$BACKGROUND_COLOR
   background.corner_radius=$ROUNDED
   background.height=$BACKGROUND_HEIGHT
+  blur_radius=$BLUR_RADIUS
+  background.border_width=$BORDER_WIDTH
+  background.border_color=$BORDER_COLOR
 )
 sketchybar --default "${default[@]}"
 
@@ -48,18 +57,18 @@ sketchybar --add event aerospace_workspace_change
 # Left items
 # Apple icon
 sketchybar --add item apple left \
-           --set apple icon= label.drawing=off icon.padding_left=12 icon.padding_right=12
+           --set apple icon= label.drawing=off icon.padding_left=12 icon.padding_right=12 icon.font.size=22.0
 
 # Current aerospace workspace
 sketchybar --add item aerospace_workspace left \
-           --set aerospace_workspace icon.drawing=off label.padding_left=$PADDING script="$PLUGIN_DIR/aerospace_workspace.sh" \
+           --set aerospace_workspace icon.drawing=off label.padding_left=$PADDING script="$PLUGIN_DIR/aerospace_workspace.sh" label.font.size=18 \
            --subscribe aerospace_workspace aerospace_workspace_change
 
 
 # Front app
-    sketchybar --add item front_window left \
-               --set front_window update_freq=1 script="$PLUGIN_DIR/front_app.sh" \
-               --subscribe front_window front_app_switched
+sketchybar --add item front_window left \
+           --set front_window label.font.size=12 update_freq=1 script="$PLUGIN_DIR/front_app.sh" \
+           --subscribe front_window front_app_switched
 
 # Right items
 # Clock
@@ -82,7 +91,7 @@ sketchybar --add item battery right \
 
 # IP address
 sketchybar --add item ip_address right \
-           --set ip_address update_freq=10 script="$PLUGIN_DIR/ip_address.sh" icon=󰩟
+           --set ip_address icon.drawing=off label.padding_left=$PADDING update_freq=10 script="$PLUGIN_DIR/ip_address.sh"
 
 ##### Force all scripts to run the first time (never do this in a script) #####
 sketchybar --update

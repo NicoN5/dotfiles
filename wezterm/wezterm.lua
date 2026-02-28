@@ -62,8 +62,8 @@ end)
 config.color_scheme = "AdventureTime"
 
 -- カーソルの見た目
-config.default_cursor_style = "BlinkingBar"
-config.cursor_thickness = 2.0
+-- config.default_cursor_style = "BlinkingBar"
+-- config.cursor_thickness = 2.0
 
 -- フォント
 config.font = wezterm.font("Hack Nerd Font")

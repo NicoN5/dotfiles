@@ -20,14 +20,14 @@ sketchybar --bar position=top height=50 color=0x00000000
 # https://felixkratz.github.io/SketchyBar/config/items
 
 # Default style config
-BACKGROUND_COLOR="0x60202020"
+BACKGROUND_COLOR="0xff000000"
 PADDING=10
 GAP=4
-ROUNDED=0
+ROUNDED=9999
 BACKGROUND_HEIGHT=35
-BLUR_RADIUS=32
+BLUR_RADIUS=0
 BORDER_WIDTH=1
-BORDER_COLOR="0x60606060"
+BORDER_COLOR="0xff000000"
 LABEL_COLOR="0xffffffff"
 
 # Default styles

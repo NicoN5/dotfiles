@@ -3,6 +3,7 @@ return {
   opts = {
     -- ■ サーバー設定
     servers = {
+      astro = {},
       tailwindcss = {
         -- exclude a filetype from the default_config
         filetypes_exclude = { "markdown" },
@@ -94,10 +95,10 @@ return {
             end,
             desc = "File References",
           },
-          { "<leader>co", LazyVim.lsp.action["source.organizeImports"], desc = "Organize Imports" },
+          { "<leader>co", LazyVim.lsp.action["source.organizeImports"],      desc = "Organize Imports" },
           { "<leader>cM", LazyVim.lsp.action["source.addMissingImports.ts"], desc = "Add missing imports" },
-          { "<leader>cu", LazyVim.lsp.action["source.removeUnused.ts"], desc = "Remove unused imports" },
-          { "<leader>cD", LazyVim.lsp.action["source.fixAll.ts"], desc = "Fix all diagnostics" },
+          { "<leader>cu", LazyVim.lsp.action["source.removeUnused.ts"],      desc = "Remove unused imports" },
+          { "<leader>cD", LazyVim.lsp.action["source.fixAll.ts"],            desc = "Fix all diagnostics" },
           {
             "<leader>cV",
             function()
@@ -218,7 +219,7 @@ return {
         end)
         -- Copy TypeScript settings to JavaScript
         opts.settings.javascript =
-          vim.tbl_deep_extend("force", {}, opts.settings.typescript, opts.settings.javascript or {})
+            vim.tbl_deep_extend("force", {}, opts.settings.typescript, opts.settings.javascript or {})
       end,
 
       -- Python: ruff hover無効化

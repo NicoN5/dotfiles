@@ -58,3 +58,6 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Starship
 eval "$(starship init zsh)"
+
+# 親ディレクトリへ移動alias
+alias '..'='cd ..'

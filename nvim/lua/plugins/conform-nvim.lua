@@ -11,6 +11,7 @@ return {
       css = { "biome" },
       scss = { "biome" },
       svelte = { "biome" },
+      astro = { "prettier" }
     }
 
     return opts

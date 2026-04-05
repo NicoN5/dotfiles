@@ -136,6 +136,8 @@ alt-z = 'workspace Z'
 alt-x = 'workspace X'
 alt-c = 'workspace C'
 
+alt-u = 'workspace U'
+alt-b = 'workspace B'
 alt-i = 'workspace I'
 alt-o = 'workspace O'
 alt-p = 'workspace P'
@@ -199,6 +201,8 @@ Z = 'main'
 X = 'main'
 C = 'main'
 
+U = ['secondary', 'main']
+B = ['secondary', 'main']
 I = ['secondary', 'main']
 O = ['secondary', 'main']
 P = ['secondary', 'main']

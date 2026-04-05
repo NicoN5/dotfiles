@@ -1,0 +1,16 @@
+background-opacity = 0.7
+
+font-size = 13
+
+language = ja
+
+background = 111111
+background-blur = false
+background-opacity-cells = true
+
+unfocused-split-opacity = 0.5
+
+keybind = ctrl+super+l=goto_split:right
+keybind = ctrl+super+h=goto_split:left
+keybind = ctrl+super+k=goto_split:up
+keybind = ctrl+super+j=goto_split:down

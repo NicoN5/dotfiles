@@ -61,3 +61,17 @@ eval "$(starship init zsh)"
 
 # 親ディレクトリへ移動alias
 alias '..'='cd ..'
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/nicon/.lmstudio/bin"
+# End of LM Studio CLI section
+
+
+# Added by Antigravity
+export PATH="/Users/nicon/.antigravity/antigravity/bin:$PATH"
+export PATH="/usr/local/opt/openjdk/bin:$PATH"
+export CPPFLAGS="-I/usr/local/opt/openjdk/include"
+
+# JDK
+export PATH="/usr/local/opt/openjdk/bin:$PATH"
+export CPPFLAGS="-I/usr/local/opt/openjdk/include"

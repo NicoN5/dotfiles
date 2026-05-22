@@ -3,7 +3,7 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 config.automatically_reload_config = true
 config.font_size = 14
-config.window_background_opacity = 0.7
+config.window_background_opacity = 0.9
 -- config.macos_window_background_blur = 10
 config.window_decorations = "RESIZE"
 config.hide_tab_bar_if_only_one_tab = true
@@ -28,7 +28,8 @@ config.colors = {
   },
 }
 config.window_background_gradient = {
-  colors = { "#002b36", "#073642" },
+  -- colors = { "#002b36", "#073642" },
+  colors = { "#111111" }
 }
 local SOLID_LEFT_ARROW = wezterm.nerdfonts.ple_lower_right_triangle
 local SOLID_RIGHT_ARROW = wezterm.nerdfonts.ple_upper_left_triangle

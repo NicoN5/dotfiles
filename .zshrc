@@ -75,3 +75,6 @@ export CPPFLAGS="-I/usr/local/opt/openjdk/include"
 # JDK
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
 export CPPFLAGS="-I/usr/local/opt/openjdk/include"
+
+# Added by Antigravity IDE
+export PATH="/Users/nicon/.antigravity-ide/antigravity-ide/bin:$PATH"

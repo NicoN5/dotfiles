@@ -69,8 +69,6 @@ export PATH="$PATH:/Users/nicon/.lmstudio/bin"
 
 # Added by Antigravity
 export PATH="/Users/nicon/.antigravity/antigravity/bin:$PATH"
-export PATH="/usr/local/opt/openjdk/bin:$PATH"
-export CPPFLAGS="-I/usr/local/opt/openjdk/include"
 
 # JDK
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
@@ -78,3 +76,15 @@ export CPPFLAGS="-I/usr/local/opt/openjdk/include"
 
 # Added by Antigravity IDE
 export PATH="/Users/nicon/.antigravity-ide/antigravity-ide/bin:$PATH"
+
+
+# Added by Antigravity CLI installer
+export PATH="/Users/nicon/.local/bin:$PATH"
+
+export VISUAL=nvim
+export EDITOR=nvim
+
+# cd repo
+cdrepo() {
+  local repodir=$(ghq list | fzf -1 +m) && cd $(ghq root)/$repodir
+}
